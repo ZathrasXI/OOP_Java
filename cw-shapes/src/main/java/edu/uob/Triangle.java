@@ -24,7 +24,7 @@ public class Triangle extends TwoDimensionalShape {
   @Override
   public String toString() {
     String text = super.toString();
-    return "This is a "+ this.col +" triangle with side of length " + s1 +","+s2+","+s3;
+    return "This is a "+ this.getColour() +" triangle with side of length " + s1 +","+s2+","+s3;
   }
 
   public double calculateArea() {

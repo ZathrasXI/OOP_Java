@@ -1,10 +1,12 @@
 package edu.uob;
 
 public abstract class TwoDimensionalShape {
-  protected Colour col;
-
+  private Colour colour;
   protected void setColour(Colour c) {
-    this.col = c;
+    this.colour = c;
+  }
+  protected Colour getColour() {
+    return this.colour;
   }
   public TwoDimensionalShape() {};
 
