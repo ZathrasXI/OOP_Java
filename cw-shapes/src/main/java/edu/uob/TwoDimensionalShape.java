@@ -8,6 +8,9 @@ public abstract class TwoDimensionalShape {
   protected Colour getColour() {
     return this.colour;
   }
+  public String toString() {
+    return "This is a " + getColour();
+  }
   public TwoDimensionalShape() {};
 
   public abstract double calculateArea();

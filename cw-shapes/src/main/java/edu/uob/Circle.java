@@ -1,9 +1,10 @@
 package edu.uob;
 
-public class Circle {
+public class Circle extends TwoDimensionalShape {
   int radius;
 
-  public Circle(int r) {
+  public Circle(int r, Colour colour) {
+    super.setColour(colour);
     radius = r;
   }
 
@@ -16,6 +17,7 @@ public class Circle {
   }
 
   public String toString() {
-    return "Circle with radius " + radius;
+    String text = super.toString();
+    return text + " circle with radius " + radius;
   }
 }
