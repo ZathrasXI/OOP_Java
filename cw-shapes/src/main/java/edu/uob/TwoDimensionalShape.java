@@ -9,7 +9,7 @@ public abstract class TwoDimensionalShape {
     return this.colour;
   }
   public String toString() {
-    return "This is a " + getColour();
+    return "This is a " + getColour() + " coloured";
   }
   public TwoDimensionalShape() {};
 

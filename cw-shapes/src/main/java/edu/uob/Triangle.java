@@ -2,23 +2,23 @@ package edu.uob;
 
 public class Triangle extends TwoDimensionalShape {
 
-  int s1;
-  int s2;
-  int s3;
-  TriangleVariant type;
+  double s2;
+  double s1;
+  double s3;
+  private TriangleVariant variant;
 
-  public Triangle(int side1, int side2, int side3) {
+  public Triangle(double side1, double side2, double side3) {
     s1 = side1;
     s2 = side2;
     s3 = side3;
-    type = setType();
+    variant = determineVariant();
   }
-  protected TriangleVariant setType() {
-    int hyp_2 = getLongestSide() * getLongestSide();
-    if (s1 + s2 < s3 || s1 + s3 < s2 || s2 + s3 < s1) {
+  private TriangleVariant determineVariant() {
+    double hypotenuse_2 = getLongestSide() * getLongestSide();
+    if (s1 <= 0 || s2 <= 0 || s3 <= 0) {
       return TriangleVariant.ILLEGAL;
     }
-    else if (s1 < 0 || s2 < 0 || s3 < 0) {
+    else if (s1 + s2 < s3 || s1 + s3 < s2 || s2 + s3 < s1) {
       return TriangleVariant.IMPOSSIBLE;
     }
     else if (isFlat()) {
@@ -30,17 +30,22 @@ public class Triangle extends TwoDimensionalShape {
     else if (s1 == s2 || s2 == s3 || s1 == s3) {
       return TriangleVariant.ISOSCELES;
     }
-    else if (hyp_2 == (s1 * s1 + s2 * s2) ||
-             hyp_2 == (s3 * s3 + s2 * s2) ||
-             hyp_2 == (s3 * s3 + s1 * s1)) {
+    else if (hypotenuse_2 == (s1 * s1 + s2 * s2) ||
+             hypotenuse_2 == (s3 * s3 + s2 * s2) ||
+             hypotenuse_2 == (s3 * s3 + s1 * s1)) {
+      double c = s1 * s1 + s2 * s2;
+      System.out.println(hypotenuse_2 + "== " + c);
       return TriangleVariant.RIGHT;
     }
-    else {
+    else if (s1 != s2 && s2 != s3) {
       return TriangleVariant.SCALENE;
+    }
+    else {
+      return TriangleVariant.ILLEGAL;
     }
   }
 
-  public int getLongestSide() {
+  public double getLongestSide() {
     if (s1 >= s2 && s1 >= s3) {
       return s1;
     }
@@ -48,14 +53,11 @@ public class Triangle extends TwoDimensionalShape {
   }
 
   public boolean isFlat(){
-    if (s1 == 0 || s2 ==0 || s3 == 0) {
-      return true;
-    }
     return s1 + s2 == s3 || s1 + s3 == s2 || s2 + s3 == s1;
   }
 
   public TriangleVariant getVariant() {
-    return type;
+    return variant;
   }
 
   @Override
@@ -65,10 +67,11 @@ public class Triangle extends TwoDimensionalShape {
   }
 
   public double calculateArea() {
-    return 0;
+    double s = (s1 + s2 + s3) / 2;
+    return Math.sqrt(s * (s-s1) * (s-s2) * (s-s3));
   }
 
   public int calculatePerimeterLength() {
-    return s1 + s2 + s3;
+    return (int) Math.round(s1 + s2 + s3);
   }
 }
