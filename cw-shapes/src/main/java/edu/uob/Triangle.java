@@ -2,23 +2,24 @@ package edu.uob;
 
 public class Triangle extends TwoDimensionalShape implements MultiVariantShape {
 
-  double s2;
-  double s1;
-  double s3;
+  long s2;
+  long s1;
+  long s3;
   private TriangleVariant variant;
 
-  public Triangle(double side1, double side2, double side3) {
-    s1 = side1;
-    s2 = side2;
-    s3 = side3;
+  public Triangle(int side1, int side2, int side3) {
+    s1 = (long) side1;
+    s2 = (long) side2;
+    s3 = (long) side3;
     variant = determineVariant();
   }
   private TriangleVariant determineVariant() {
-    double hypotenuse_2 = getLongestSide() * getLongestSide();
+    long hypotenuse_2 = (long) (getLongestSide() * getLongestSide());
     if (s1 <= 0 || s2 <= 0 || s3 <= 0) {
       return TriangleVariant.ILLEGAL;
     }
     else if (s1 + s2 < s3 || s1 + s3 < s2 || s2 + s3 < s1) {
+      System.out.println(s1 + " " + s2 + " " + s3);
       return TriangleVariant.IMPOSSIBLE;
     }
     else if (isFlat()) {
@@ -34,14 +35,10 @@ public class Triangle extends TwoDimensionalShape implements MultiVariantShape {
              hypotenuse_2 == (s3 * s3 + s2 * s2) ||
              hypotenuse_2 == (s3 * s3 + s1 * s1)) {
       double c = s1 * s1 + s2 * s2;
-      System.out.println(hypotenuse_2 + "== " + c);
       return TriangleVariant.RIGHT;
     }
-    else if (s1 != s2 && s2 != s3) {
-      return TriangleVariant.SCALENE;
-    }
     else {
-      return TriangleVariant.ILLEGAL;
+      return TriangleVariant.SCALENE;
     }
   }
 
@@ -67,7 +64,7 @@ public class Triangle extends TwoDimensionalShape implements MultiVariantShape {
   }
 
   public double calculateArea() {
-    double s = (s1 + s2 + s3) / 2;
+    double s = (double) (s1 + s2 + s3) / 2;
     return Math.sqrt(s * (s-s1) * (s-s2) * (s-s3));
   }
 
