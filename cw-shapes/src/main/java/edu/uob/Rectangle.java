@@ -1,6 +1,6 @@
 package edu.uob;
 
-public class Rectangle {
+public class Rectangle extends TwoDimensionalShape {
   int width;
   int height;
 

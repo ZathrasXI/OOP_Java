@@ -3,8 +3,7 @@ package edu.uob;
 public class Circle extends TwoDimensionalShape {
   int radius;
 
-  public Circle(int r, Colour colour) {
-    super.setColour(colour);
+  public Circle(int r) {
     radius = r;
   }
 

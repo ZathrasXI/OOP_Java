@@ -1,6 +1,6 @@
 package edu.uob;
 
-public class Triangle extends TwoDimensionalShape {
+public class Triangle extends TwoDimensionalShape implements MultiVariantShape {
 
   double s2;
   double s1;
