@@ -6,12 +6,14 @@ public class Triangle extends TwoDimensionalShape implements MultiVariantShape {
   long s1;
   long s3;
   private TriangleVariant variant;
+  static int count;
 
   public Triangle(int side1, int side2, int side3) {
     s1 = (long) side1;
     s2 = (long) side2;
     s3 = (long) side3;
     variant = determineVariant();
+    count = 0;
   }
   private TriangleVariant determineVariant() {
     long hypotenuse_2 = (long) (getLongestSide() * getLongestSide());
@@ -19,7 +21,6 @@ public class Triangle extends TwoDimensionalShape implements MultiVariantShape {
       return TriangleVariant.ILLEGAL;
     }
     else if (s1 + s2 < s3 || s1 + s3 < s2 || s2 + s3 < s1) {
-      System.out.println(s1 + " " + s2 + " " + s3);
       return TriangleVariant.IMPOSSIBLE;
     }
     else if (isFlat()) {
