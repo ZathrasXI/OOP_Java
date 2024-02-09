@@ -6,14 +6,17 @@ public class Triangle extends TwoDimensionalShape implements MultiVariantShape {
   long s1;
   long s3;
   private TriangleVariant variant;
-  static int count;
+  static int count = 0;
 
   public Triangle(int side1, int side2, int side3) {
     s1 = (long) side1;
     s2 = (long) side2;
     s3 = (long) side3;
     variant = determineVariant();
-    count = 0;
+    count++;
+  }
+  public int getPopulation() {
+    return count;
   }
   private TriangleVariant determineVariant() {
     long hypotenuse_2 = (long) (getLongestSide() * getLongestSide());
