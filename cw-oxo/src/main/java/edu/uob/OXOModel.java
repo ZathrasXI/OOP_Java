@@ -61,12 +61,10 @@ public class OXOModel {
         currentPlayerNumber = playerNumber;
     }
 
-    public int getNumberOfRows() {
-        return cells.length;
-    }
+    public int getNumberOfRows() {return board.size(); }
 
     public int getNumberOfColumns() {
-        return cells[0].length;
+        return board.get(0).size();
     }
 
     public OXOPlayer getCellOwner(int rowNumber, int colNumber) {
@@ -92,5 +90,26 @@ public class OXOModel {
     public boolean isGameDrawn() {
         return gameDrawn;
     }
+
+    public void addRow() {
+        board.add(new ArrayList<>());
+//        for (int i = 0; i < this.cols; i++) {
+//            board.get(end).set(i, new OXOPlayer(' '));
+//        }
+        int end = board.size() -1;
+        for (OXOPlayer player : board.get(end)) {
+            player = new OXOPlayer(' ');
+        }
+    }
+
+    public void addColumn() {
+        for (int i = 0; i < this.rows; i++) {
+            board.get(i).add(new OXOPlayer(' '));
+        }
+    }
+
+//    public void removeRow() {
+//        board.
+//    }
 
 }
