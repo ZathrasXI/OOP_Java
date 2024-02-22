@@ -107,8 +107,23 @@ public class OXOModel {
         this.cols++;
     }
 
-//    public void removeRow() {
-//        board.
-//    }
+    public void removeRow() {
+        if (this.rows > 3) {
+            board.remove(board.size() -1 );
+            this.rows--;
+        }
+    }
+
+    public void removeColumn() {
+        if (this.cols > 3) {
+            int endCol = board.get(0).size() - 1;
+            for (int i = 0; i < this.rows; i++) {
+                board.get(i).remove(endCol);
+            }
+            this.cols--;
+        }
+    }
+
+
 
 }
