@@ -93,19 +93,18 @@ public class OXOModel {
 
     public void addRow() {
         board.add(new ArrayList<>());
-//        for (int i = 0; i < this.cols; i++) {
-//            board.get(end).set(i, new OXOPlayer(' '));
-//        }
-        int end = board.size() -1;
-        for (OXOPlayer player : board.get(end)) {
-            player = new OXOPlayer(' ');
+        int end = board.size() - 1;
+        for (int i = 0; i < this.cols; i++) {
+            board.get(end).add(new OXOPlayer(' '));
         }
+        this.rows++;
     }
 
     public void addColumn() {
         for (int i = 0; i < this.rows; i++) {
             board.get(i).add(new OXOPlayer(' '));
         }
+        this.cols++;
     }
 
 //    public void removeRow() {

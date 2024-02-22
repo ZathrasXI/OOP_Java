@@ -33,9 +33,9 @@ public class OXOController {
             this.gameModel.setCurrentPlayerNumber(0);
         }
     }
-    public void addRow() {}
+    public void addRow() { gameModel.addRow(); }
     public void removeRow() {}
-    public void addColumn() {}
+    public void addColumn() { gameModel.addColumn(); }
     public void removeColumn() {}
     public void increaseWinThreshold() {}
     public void decreaseWinThreshold() {}
