@@ -10,21 +10,10 @@ public class OXOController {
     public void handleIncomingCommand(String command) throws OXOMoveException {
         int row, col;
         command = command.toLowerCase();
-//        switch (command.substring(0, 1)) {
-//            case "a" -> row = 0;
-//            case "b" -> row = 1;
-//            case "c" -> row = 2;
-//            default -> row = -1;
-//        }
-//
-//        col = switch (command.substring(1)) {
-//            case "1" -> 0;
-//            case "2" -> 1;
-//            case "3" -> 2;
-//            default -> -1;
-//        };
+
         char[] rowAsChar = command.substring(0,1).toCharArray();
         row = rowAsChar[0] - 'a';
+
         col = Integer.parseInt(command.substring(1,2)) - 1;
         int player_id = this.gameModel.getCurrentPlayerNumber();
         OXOPlayer cur_player = this.gameModel.getPlayerByNumber(player_id);
