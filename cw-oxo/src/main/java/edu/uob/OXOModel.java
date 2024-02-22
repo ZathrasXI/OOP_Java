@@ -5,7 +5,6 @@ import java.util.List;
 
 public class OXOModel {
 
-    private OXOPlayer[][] cells;
     private OXOPlayer[] players;
     private int currentPlayerNumber;
     private OXOPlayer winner;
@@ -17,7 +16,6 @@ public class OXOModel {
 
     public OXOModel(int numberOfRows, int numberOfColumns, int winThresh) {
         winThreshold = winThresh;
-        cells = new OXOPlayer[numberOfRows][numberOfColumns];
         players = new OXOPlayer[2];
         rows = 3;
         cols = 3;
@@ -72,12 +70,10 @@ public class OXOModel {
     }
 
     public OXOPlayer getCellOwner(int rowNumber, int colNumber) {
-//        return cells[rowNumber][colNumber];
         return board.get(rowNumber).get(colNumber);
     }
 
     public void setCellOwner(int rowNumber, int colNumber, OXOPlayer player) {
-//        cells[rowNumber][colNumber] = player;
         board.get(rowNumber).set(colNumber, player);
     }
 
