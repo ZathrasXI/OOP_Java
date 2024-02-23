@@ -27,6 +27,9 @@ public class OXOModel {
             }
         }
     }
+    public List<List<OXOPlayer>> getBoard() {
+        return board;
+    }
 
     public int getNumberOfPlayers() {
         return players.length;

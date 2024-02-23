@@ -41,4 +41,30 @@ public class OXOController {
         }
         this.gameModel.setCurrentPlayerNumber(0);
     }
+
+    public boolean winningMove() {
+        OXOPlayer curPlayer = gameModel.getPlayerByNumber(gameModel.getCurrentPlayerNumber());
+        char letter = curPlayer.getPlayingLetter();
+
+        //check horizontal
+        int horiCount = 0;
+        for (int r = 0; r < gameModel.rows; r++) {
+            for (int c = 0; c < gameModel.cols; c++) {
+                if (gameModel.getBoard().get(r).get(c).getPlayingLetter() == letter) horiCount++;
+            }
+            if (horiCount == gameModel.rows) return true;
+            else horiCount = 0;
+        }
+
+        //check vertical
+        int colIndex = 0;
+        int vertCount = 0;
+        for (int r = 0; r < gameModel.rows; r++) {
+            if (gameModel.getBoard().get(r).get(colIndex).getPlayingLetter() == letter) vertCount++;
+
+
+        }
+    }
 }
+
+
