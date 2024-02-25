@@ -79,7 +79,7 @@ public class OXOModel {
     }
 
     public void setWinThreshold(int winThresh) {
-        winThreshold = winThresh;
+        if (winThresh >= 3) winThreshold = winThresh;
     }
 
     public int getWinThreshold() {
@@ -126,7 +126,4 @@ public class OXOModel {
             this.cols--;
         }
     }
-
-
-
 }
